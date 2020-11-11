@@ -1,0 +1,57 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #FF00E5;
+
+  &::before {
+    z-index: -1;
+    content: " ";
+    display: block;
+    background: #0066FF;
+    position: absolute;
+    height: 30vw;
+    width: 30vw;
+    border-radius: 50%;
+    top: -10vw;
+    left: -10vw;
+  }
+
+  &::after {
+    z-index: -1;
+    content: " ";
+    display: block;
+    background: #0500FF;
+    position: absolute;
+    height: 40vw;
+    width: 40vw;
+    border-radius: 50%;
+    bottom: 0;
+    right: 0;
+  }
+}
+
+#app {
+  height: 100vh;
+  overflow-y: scroll;
+}
+
+.light-blur {
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(100px);
+}
+
+.container {
+  width: 100%;
+  margin: 20px auto;
+  border-radius: 20px;
+}
+
+@media screen and (min-width: 1024px) {
+  .container {
+    max-width: 1000px;
+  }
+}
