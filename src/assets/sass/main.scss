@@ -1,7 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css');
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 200;
+  font-size: 30px;
+  color: white;
+  transition: .3s;
+  user-select: none;
 }
 
 body {
@@ -13,11 +22,13 @@ body {
     display: block;
     background: #0066FF;
     position: absolute;
-    height: 30vw;
-    width: 30vw;
+    height: 40vw;
+    width: 40vw;
     border-radius: 50%;
     top: -10vw;
     left: -10vw;
+    animation: battle 6s linear infinite;
+
   }
 
   &::after {
@@ -26,32 +37,168 @@ body {
     display: block;
     background: #0500FF;
     position: absolute;
-    height: 40vw;
-    width: 40vw;
+    height: 30vw;
+    width: 30vw;
     border-radius: 50%;
-    bottom: 0;
-    right: 0;
+    top: 0;
+    left: 30VW;
+    animation: battle2 6s linear infinite;
+
   }
 }
 
 #app {
   height: 100vh;
-  overflow-y: scroll;
-}
-
-.light-blur {
-  background: rgba(255, 255, 255, 0.3);
+  background: rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(100px);
 }
 
-.container {
-  width: 100%;
-  margin: 20px auto;
+.light-blur {
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(100px);
   border-radius: 20px;
 }
 
-@media screen and (min-width: 1024px) {
-  .container {
-    max-width: 1000px;
+.game {
+  &-screen {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  &-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+  }
+
+  &-btn {
+    //height: 50px;
+    //width: 50px;
+    margin: 20px;
+    border: none;
+    border-radius: 50%;
+    outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+      background: #fff;
+      box-shadow: 0 0 40px white;
+
+      img {
+        filter: none;
+      }
+    }
+
+    img {
+      filter: invert(1);;
+      height: 70px;
+      width: 70px;
+    }
+  }
+}
+
+.grid {
+  &-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    //margin: 20px auto;
+  }
+
+  &-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+  }
+
+  &-cell {
+    height: 100px;
+    width: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+
+    &-2 {
+      background: rgba(20, 20, 20, 0.3);
+      box-shadow: 0 0 30px rgba(20, 20, 20, 0.3);
+    }
+
+    &-4 {
+      background: rgba(40, 40, 40, 0.3);
+      box-shadow: 0 0 30px rgba(40, 40, 40, 0.3);
+    }
+
+    &-8 {
+      background: rgba(80, 80, 80, 0.3);
+      box-shadow: 0 0 30px rgba(80, 80, 80, 0.3);
+    }
+
+    &-16 {
+      background: rgba(160, 160, 160, 0.3);
+      box-shadow: 0 0 30px rgba(160, 160, 160, 0.3);
+    }
+
+    &-32 {
+      background: rgba(320, 320, 320, 0.3);
+      box-shadow: 0 0 30px rgba(320, 320, 320, 0.3);
+    }
+
+    &-64 {
+      background: rgba(640, 640, 640, 0.3);
+      box-shadow: 0 0 30px rgba(640, 640, 640, 0.3);
+    }
+
+    &-128 {
+      background: rgba(1280, 1280, 1280, 0.3);
+      box-shadow: 0 0 30px rgba(1280, 1280, 1280, 0.3);
+    }
+
+    &-256 {
+      background: rgba(2560, 2560, 2560, 0.3);
+      box-shadow: 0 0 30px rgba(2560, 2560, 2560, 0.3);
+    }
+
+    &-512 {
+      background: rgba(5120, 5120, 5120, 0.3);
+      box-shadow: 0 0 30px rgba(5120, 5120, 5120, 0.3);
+    }
+
+    &-1024 {
+      background: rgba(10240, 10240, 10240, 0.3);
+      box-shadow: 0 0 30px rgba(10240, 10240, 10240, 0.3);
+    }
+
+    &-more {
+      background: rgba(20480, 20480, 20480, 0.3);
+      box-shadow: 0 0 30px rgba(20480, 20480, 20480, 0.3);
+    }
+  }
+}
+
+@keyframes battle {
+  from {
+    transform: rotate(0deg) translateX(150px) rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg) translateX(150px) rotate(-360deg);
+  }
+}
+
+
+@keyframes battle2 {
+  from {
+    transform: rotate(0deg) translateY(150px) rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg) translateY(150px) rotate(360deg);
   }
 }
